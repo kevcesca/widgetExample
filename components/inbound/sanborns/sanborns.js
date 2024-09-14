@@ -1,4 +1,4 @@
-class CentroAtencionTelefonica extends HTMLElement {
+class CentroAtencionSanborns extends HTMLElement {
     constructor() {
         super();
 
@@ -7,14 +7,14 @@ class CentroAtencionTelefonica extends HTMLElement {
 
         // Contenido HTML del Web Component con el sidebar incluido
         this.shadowRoot.innerHTML = `
-        <link rel="stylesheet" href="mi-widget.css">
+        <link rel="stylesheet" href="sanborns.css">
         <link rel="stylesheet" href="../css/neo/neon.css">
         <div class="widget-layout">
             <!-- Contenido principal del Web Component -->
             <div class="neo-container container">
-                <h5>Centro de Atención Telefónica SEARS.</h5>
+                <h5>Centro de Atención Telefónica SANBORNS.</h5>
                 <p><span class="customer-info">Buenas Tardes, le atiende: <b>ABIGAIL NAJERA</b>.</span></p>
-                <p>¿Tengo el gusto con el Sr./Sra. <b>FORTUNATA ANA LOPEZ ACEVEDO</b>? ¿En qué puedo servirle?</p>
+                <p>¿Tengo el gusto con el Sr./Sra. <b>LAURA ELENA CARRILLO CRUZ</b>? ¿En qué puedo servirle?</p>
 
                 <!-- Formulario de motivos -->
                 <div class="formrow">
@@ -22,7 +22,7 @@ class CentroAtencionTelefonica extends HTMLElement {
                         <label for="grupo">Grupo:</label>
                         <select id="grupo" class="neo-form-control">
                             <option>ACLARACIÓN</option>
-                            <option>CAJEROS SEARS</option>
+                            <option>CAJEROS SANBORNS</option>
                             <option>LINEA DE CRÉDITO</option>
                             <option>SERVICIO</option>
                         </select>
@@ -82,7 +82,7 @@ class CentroAtencionTelefonica extends HTMLElement {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>101 INSURGENTES</td>
+                                <td>101 SANBORNS INSURGENTES</td>
                                 <td>CC Plaza Insurgentes San Luis Potosí No. 214, Col. Roma, Del. Cuauhtémoc, CDMX</td>
                                 <td>52303940</td>
                                 <td>52303900</td>
@@ -99,7 +99,7 @@ class CentroAtencionTelefonica extends HTMLElement {
                 <div class="sidebar-content">
                     <!-- Información básica -->
                     <div class="sidebar-header">
-                        <h5>CEAT: SEARS 📞</h5>
+                        <h5>CEAT: SANBORNS 📞</h5>
                         <p class="text-danger">MOTIVO: SOLICITA AYUDA CLIENTE - 5521382726</p>
                         <p>Cuenta: 70-6925172225</p>
                     </div>
@@ -124,15 +124,15 @@ class CentroAtencionTelefonica extends HTMLElement {
         </div>
         `;
 
-        // Llamamos a los métodos después de que el HTML ha sido renderizado
+        // Lógica de los dropdowns
         this.setupDropdownLogic();
     }
 
+    // Lógica para actualizar el dropdown de servicios
     setupDropdownLogic() {
-        // Definir las opciones de servicios para cada grupo
         const servicios = {
             "ACLARACIÓN": ["Bonificación de CXF", "Fraudes", "Cheques Devueltos", "Traspaso de Pago", "Pagos Internet"],
-            "CAJEROS SEARS": ["DUDAS Y/O COMENTARIOS", "EFECTIVO RETENIDO", "RECHAZO DE RETIRO", "TARJETA RETENIDA"],
+            "CAJEROS SANBORNS": ["DUDAS Y/O COMENTARIOS", "EFECTIVO RETENIDO", "RECHAZO DE RETIRO", "TARJETA RETENIDA"],
             "LINEA DE CRÉDITO": ["Consulta de Saldo", "Traspaso CR a Reserva"],
             "SERVICIO": [
                 "Transferencia a Aprobaciones", "Activación de NIP", "Cambios Demográficos", "Cancelación de Adicional",
@@ -143,19 +143,14 @@ class CentroAtencionTelefonica extends HTMLElement {
             ]
         };
 
-        // Referencias a los elementos del Shadow DOM
         const grupoSelect = this.shadowRoot.getElementById("grupo");
         const servicioSelect = this.shadowRoot.getElementById("servicio");
 
-        // Función para actualizar las opciones del segundo dropdown
         const updateServicios = () => {
             const selectedGrupo = grupoSelect.value;
-
-            // Limpiar las opciones actuales del servicio
             servicioSelect.innerHTML = "";
 
-            // Agregar las nuevas opciones
-            servicios[selectedGrupo].forEach(function(servicio) {
+            servicios[selectedGrupo].forEach(servicio => {
                 const option = document.createElement("option");
                 option.text = servicio;
                 option.value = servicio;
@@ -163,13 +158,10 @@ class CentroAtencionTelefonica extends HTMLElement {
             });
         };
 
-        // Evento para cambiar el grupo
         grupoSelect.addEventListener("change", updateServicios);
-
-        // Inicializa la lista de servicios la primera vez
         updateServicios();
     }
 }
 
 // Definir el nuevo custom element
-customElements.define('centro-atencion-telefonica', CentroAtencionTelefonica);
+customElements.define('centro-atencion-sanborns', CentroAtencionSanborns);

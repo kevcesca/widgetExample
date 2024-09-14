@@ -1,36 +1,54 @@
-class CentroAtencionTelefonica extends HTMLElement { //ajustar al nombre del widget
+class CentroAtencionSears extends HTMLElement {
     constructor() {
         super();
 
         // Creamos el Shadow DOM
         this.attachShadow({ mode: 'open' });
 
-        // Contenido HTML del Web Component con el sidebar incluido
+        // Contenido HTML del Web Component
         this.shadowRoot.innerHTML = `
-        <link rel="stylesheet" href="otro-widget.css"> // ajustar al nombre del widget
+        <link rel="stylesheet" href="robo.css">
         <link rel="stylesheet" href="../css/neo/neon.css">
         <div class="widget-layout">
             <!-- Contenido principal del Web Component -->
             <div class="neo-container container">
                 <h5>Centro de Atención Telefónica SEARS.</h5>
                 <p><span class="customer-info">Buenas Tardes, le atiende: <b>ABIGAIL NAJERA</b>.</span></p>
-                <p>¿Tengo el gusto con el Sr./Sra. <b>FORTUNATA ANA LOPEZ ACEVEDO</b>? ¿En qué puedo servirle?</p>
+                <p>¿En qué puedo servirle?</p>
 
                 <!-- Formulario de motivos -->
                 <div class="formrow">
                     <div class="neo-form-group neo-col neo-col--6">
                         <label for="grupo">Grupo:</label>
                         <select id="grupo" class="neo-form-control">
-                            <option>ACLARACIÓN</option>
-                            <option>CAJEROS SEARS</option>
-                            <option>LINEA DE CRÉDITO</option>
                             <option>SERVICIO</option>
+                            <option>ACLARACIÓN</option>
+                            <option>LINEA DE CRÉDITO</option>
+                            <option>CAJEROS SANBORNS</option>
                         </select>
                     </div>
                     <div class="neo-form-group neo-col neo-col--6">
                         <label for="servicio">Servicio:</label>
                         <select id="servicio" class="neo-form-control">
-                            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+                            <option>Transferencia a Aprobaciones</option>
+                            <option>Activación de NIP</option>
+                            <option>Cambios Demográficos</option>
+                            <option>Cancelación de Adicional</option>
+                            <option>Cancelación de Cuenta</option>
+                            <option>Carta Referencia</option>
+                            <option>Cliente RIP</option>
+                            <option>Directorio de tiendas</option>
+                            <option>Envío de Estados de Cuenta</option>
+                            <option>Envío de Placa</option>
+                            <option>Problemas Internet</option>
+                            <option>Queja de Servicio Tienda</option>
+                            <option>Registro de Adicional</option>
+                            <option>Reporte de Estados de Cuenta</option>
+                            <option>Status de Solicitud</option>
+                            <option>Tarjeta Robada</option>
+                            <option>Transferencia a Cobranza</option>
+                            <option>Transferencia a Promociones</option>
+                            <option>Transferencias a Seguros</option>
                         </select>
                     </div>
                     <button class="btn custom-primary">Agregar</button>
@@ -57,7 +75,7 @@ class CentroAtencionTelefonica extends HTMLElement { //ajustar al nombre del wid
 
                 <!-- Fila para finalizar la llamada -->
                 <div class="button-right">
-                    <p>Esperamos tener el placer de atenderlo próximamente.<br>Le atendió <b>ABIGAIL NAJERA</b>.</p>
+                    <p>Esperamos tener el placer de atenderlo próximamente.<br>Le atendió <b>ABIGAIL NAJERA</b> del Centro de Atención Telefónica SEARS.</p>
                     <button class="btn custom-success">Finalizar</button>
                 </div>
 
@@ -128,34 +146,35 @@ class CentroAtencionTelefonica extends HTMLElement { //ajustar al nombre del wid
         this.setupDropdownLogic();
     }
 
+    // Lógica para actualizar el dropdown de servicios
     setupDropdownLogic() {
-        // Definir las opciones de servicios para cada grupo
         const servicios = {
-            "ACLARACIÓN": ["Bonificación de CXF", "Fraudes", "Cheques Devueltos", "Traspaso de Pago", "Pagos Internet"],
-            "CAJEROS SEARS": ["DUDAS Y/O COMENTARIOS", "EFECTIVO RETENIDO", "RECHAZO DE RETIRO", "TARJETA RETENIDA"],
-            "LINEA DE CRÉDITO": ["Consulta de Saldo", "Traspaso CR a Reserva"],
-            "SERVICIO": [
+            'SERVICIO': [
                 "Transferencia a Aprobaciones", "Activación de NIP", "Cambios Demográficos", "Cancelación de Adicional",
                 "Cancelación de Cuenta", "Carta Referencia", "Cliente RIP", "Directorio de tiendas",
                 "Envío de Estados de Cuenta", "Envío de Placa", "Problemas Internet", "Queja de Servicio Tienda",
                 "Registro de Adicional", "Reporte de Estados de Cuenta", "Status de Solicitud", "Tarjeta Robada",
                 "Transferencia a Cobranza", "Transferencia a Promociones", "Transferencias a Seguros"
+            ],
+            'ACLARACIÓN': [
+                "Bonificación de CXF", "Fraudes", "Cheques Devueltos", "Traspaso de Pago", "Traspaso de Venta", "Pagos Internet"
+            ],
+            'LINEA DE CRÉDITO': [
+                "Consulta de Saldo", "Traspaso CR a Reserva"
+            ],
+            'CAJEROS SANBORNS': [
+                "DUDAS Y/O COMENTARIOS", "EFECTIVO RETENIDO", "RECHAZO DE RETIRO", "TARJETA RETENIDA"
             ]
         };
 
-        // Referencias a los elementos del Shadow DOM
         const grupoSelect = this.shadowRoot.getElementById("grupo");
         const servicioSelect = this.shadowRoot.getElementById("servicio");
 
-        // Función para actualizar las opciones del segundo dropdown
         const updateServicios = () => {
             const selectedGrupo = grupoSelect.value;
-
-            // Limpiar las opciones actuales del servicio
             servicioSelect.innerHTML = "";
 
-            // Agregar las nuevas opciones
-            servicios[selectedGrupo].forEach(function(servicio) {
+            servicios[selectedGrupo].forEach(servicio => {
                 const option = document.createElement("option");
                 option.text = servicio;
                 option.value = servicio;
@@ -163,16 +182,10 @@ class CentroAtencionTelefonica extends HTMLElement { //ajustar al nombre del wid
             });
         };
 
-        // Evento para cambiar el grupo
         grupoSelect.addEventListener("change", updateServicios);
-
-        // Inicializa la lista de servicios la primera vez
         updateServicios();
     }
 }
 
-
-
-
 // Definir el nuevo custom element
-customElements.define('centro-atencion-telefonica', CentroAtencionTelefonica); //Cambiar de acuerdo al nombre
+customElements.define('centro-atencion-sears', CentroAtencionSears);
