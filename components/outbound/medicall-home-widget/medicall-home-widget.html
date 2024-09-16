@@ -129,10 +129,12 @@
                     <label for="codigoRespuesta1" class="form-label">Código de respuesta Nivel 1:</label>
                     <select class="form-select" id="codigoRespuesta1">
                         <option selected>Seleccione una opción</option>
+                        <option value="acepta">ACEPTA</option>
+                        <option value="no_acepta">NO ACEPTA</option>
                     </select>
                 </div>
             </div>
-
+    
             <div class="row mb-2 p-2 border">
                 <div class="col-md-6">
                     <label for="observaciones" class="form-label">Observaciones:</label>
@@ -145,14 +147,51 @@
                     </select>
                 </div>
             </div>
-
+    
             <div class="row">
                 <div class="col-12 text-end">
                     <button type="submit" class="btn btn-success">Finalizar</button>
                 </div>
             </div>
-        </form>
-    </div>
-</body>
-
-</html>
+        </div>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const codigoRespuesta1 = document.getElementById('codigoRespuesta1');
+                const codigoRespuesta2 = document.getElementById('codigoRespuesta2');
+                const observaciones = document.getElementById('observaciones');
+    
+                const opcionesAcepta = ['ANUAL', 'MENSUAL'];
+                const opcionesNoAcepta = ['COSTO', 'NO CUBRE NECESIDADES', 'NO LE INTERESA', 'YA TIENE SERVICIO', 'No ha tenido Tiempo', 'OTROS NA'];
+    
+                codigoRespuesta1.addEventListener('change', function() {
+                    codigoRespuesta2.innerHTML = '<option selected>Seleccione una opción</option>';
+                    
+                    if (this.value === 'acepta') {
+                        opcionesAcepta.forEach(opcion => {
+                            const option = document.createElement('option');
+                            option.value = opcion.toLowerCase();
+                            option.textContent = opcion;
+                            codigoRespuesta2.appendChild(option);
+                        });
+                        codigoRespuesta2.style.display = 'block';
+                        observaciones.style.display = 'none';
+                    } else if (this.value === 'no_acepta') {
+                        opcionesNoAcepta.forEach(opcion => {
+                            const option = document.createElement('option');
+                            option.value = opcion.toLowerCase().replace(/ /g, '_');
+                            option.textContent = opcion;
+                            codigoRespuesta2.appendChild(option);
+                        });
+                        codigoRespuesta2.style.display = 'block';
+                        observaciones.style.display = 'block';
+                    } else {
+                        codigoRespuesta2.style.display = 'none';
+                        observaciones.style.display = 'none';
+                    }
+                });
+            });
+        </script>
+    </body>
+    
+    </html>
