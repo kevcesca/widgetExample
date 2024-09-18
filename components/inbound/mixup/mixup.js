@@ -132,7 +132,7 @@ class CentroAtencionMixup extends HTMLElement {
                 "Envío de Estados de Cuenta", "Envío de Placa", "Problemas Internet", "Queja de Servicio Tienda",
                 "Reporte de Estados de Cuenta", "Solicitar Tarjeta", "Transferencias a Seguros"
             ],
-            "ACLARACIÓN": ["Bonificación de CXF", "Fraudes", "Cheques Devueltos", "Traspaso de Pago", "Pagos Internet"],
+            "ACLARACIÓN": ["Bonificación de CXF", "Fraudes", "Cheques Devueltos", "Traspaso de Pago", "Traspaso de Venta", "Pagos Internet"],
             "CAJEROS MIXUP": ["DUDAS Y/O COMENTARIOS", "EFECTIVO RETENIDO", "RECHAZO DE RETIRO", "TARJETA RETENIDA"],
             "LINEA DE CRÉDITO": ["Consulta de Saldo", "Traspaso CR a Reserva"]
         };

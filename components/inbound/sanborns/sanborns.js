@@ -131,15 +131,15 @@ class CentroAtencionSanborns extends HTMLElement {
     // Lógica para actualizar el dropdown de servicios
     setupDropdownLogic() {
         const servicios = {
-            "ACLARACIÓN": ["Bonificación de CXF", "Fraudes", "Cheques Devueltos", "Traspaso de Pago", "Pagos Internet"],
+            "ACLARACIÓN": ["Bonificación de CXF", "Fraudes", "Cheques Devueltos", "Traspaso de Pago", "Traspaso de Venta", "Pagos Internet"],
             "CAJEROS SANBORNS": ["DUDAS Y/O COMENTARIOS", "EFECTIVO RETENIDO", "RECHAZO DE RETIRO", "TARJETA RETENIDA"],
             "LINEA DE CRÉDITO": ["Consulta de Saldo", "Traspaso CR a Reserva"],
             "SERVICIO": [
                 "Transferencia a Aprobaciones", "Activación de NIP", "Cambios Demográficos", "Cancelación de Adicional",
                 "Cancelación de Cuenta", "Carta Referencia", "Cliente RIP", "Directorio de tiendas",
                 "Envío de Estados de Cuenta", "Envío de Placa", "Problemas Internet", "Queja de Servicio Tienda",
-                "Registro de Adicional", "Reporte de Estados de Cuenta", "Status de Solicitud", "Tarjeta Robada",
-                "Transferencia a Cobranza", "Transferencia a Promociones", "Transferencias a Seguros"
+                "Registro de Adicional", "Reporte de Estados de Cuenta", "Status de Solicitud", "Tarjeta Robada", "Transferencia (Conmutador o algún Agente)",
+                "Transferencia a Cobranza", "Transferencia a Promociones", "Transferencias a Seguros", "Viajes Sears"
             ]
         };
 

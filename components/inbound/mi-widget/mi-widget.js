@@ -138,8 +138,8 @@ class CentroAtencionTelefonica extends HTMLElement {
                 "Transferencia a Aprobaciones", "Activación de NIP", "Cambios Demográficos", "Cancelación de Adicional",
                 "Cancelación de Cuenta", "Carta Referencia", "Cliente RIP", "Directorio de tiendas",
                 "Envío de Estados de Cuenta", "Envío de Placa", "Problemas Internet", "Queja de Servicio Tienda",
-                "Registro de Adicional", "Reporte de Estados de Cuenta", "Status de Solicitud", "Tarjeta Robada",
-                "Transferencia a Cobranza", "Transferencia a Promociones", "Transferencias a Seguros"
+                "Registro de Adicional", "Reporte de Estados de Cuenta", "Status de Solicitud", "Tarjeta Robada", "Transferencia (Conmutador o algún Agente)",
+                "Transferencia a Cobranza", "Transferencia a Promociones", "Transferencias a Seguros", "Viajes Sears"
             ]
         };
 

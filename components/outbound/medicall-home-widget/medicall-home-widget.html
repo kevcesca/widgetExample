@@ -131,10 +131,11 @@
                         <option selected>Seleccione una opción</option>
                         <option value="acepta">ACEPTA</option>
                         <option value="no_acepta">NO ACEPTA</option>
+                        <option value="no_contacto">NO CONTACTO</option>
                     </select>
                 </div>
             </div>
-    
+
             <div class="row mb-2 p-2 border">
                 <div class="col-md-6">
                     <label for="observaciones" class="form-label">Observaciones:</label>
@@ -147,51 +148,62 @@
                     </select>
                 </div>
             </div>
-    
+
             <div class="row">
                 <div class="col-12 text-end">
                     <button type="submit" class="btn btn-success">Finalizar</button>
                 </div>
             </div>
-        </div>
-    
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const codigoRespuesta1 = document.getElementById('codigoRespuesta1');
-                const codigoRespuesta2 = document.getElementById('codigoRespuesta2');
-                const observaciones = document.getElementById('observaciones');
-    
-                const opcionesAcepta = ['ANUAL', 'MENSUAL'];
-                const opcionesNoAcepta = ['COSTO', 'NO CUBRE NECESIDADES', 'NO LE INTERESA', 'YA TIENE SERVICIO', 'No ha tenido Tiempo', 'OTROS NA'];
-    
-                codigoRespuesta1.addEventListener('change', function() {
-                    codigoRespuesta2.innerHTML = '<option selected>Seleccione una opción</option>';
-                    
-                    if (this.value === 'acepta') {
-                        opcionesAcepta.forEach(opcion => {
-                            const option = document.createElement('option');
-                            option.value = opcion.toLowerCase();
-                            option.textContent = opcion;
-                            codigoRespuesta2.appendChild(option);
-                        });
-                        codigoRespuesta2.style.display = 'block';
-                        observaciones.style.display = 'none';
-                    } else if (this.value === 'no_acepta') {
-                        opcionesNoAcepta.forEach(opcion => {
-                            const option = document.createElement('option');
-                            option.value = opcion.toLowerCase().replace(/ /g, '_');
-                            option.textContent = opcion;
-                            codigoRespuesta2.appendChild(option);
-                        });
-                        codigoRespuesta2.style.display = 'block';
-                        observaciones.style.display = 'block';
-                    } else {
-                        codigoRespuesta2.style.display = 'none';
-                        observaciones.style.display = 'none';
-                    }
-                });
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const codigoRespuesta1 = document.getElementById('codigoRespuesta1');
+            const codigoRespuesta2 = document.getElementById('codigoRespuesta2');
+            const observaciones = document.getElementById('observaciones');
+
+            const opcionesAcepta = ['ANUAL', 'MENSUAL'];
+            const opcionesNoAcepta = ['COSTO', 'NO CUBRE NECESIDADES', 'NO LE INTERESA', 'YA TIENE SERVICIO', 'No ha tenido Tiempo', 'OTROS NA'];
+            const opcionesNoContacto = ['NO VIVE AHÍ', 'NO SE ENCUENTRA', "No Contesta", "CONTESTADORA", "Teléfono Ocupado", "Fuera de Servicio", "CLIENTE RIP", "OTROS NC", "Datos no Corresponden Req/Tel"];
+
+            codigoRespuesta1.addEventListener('change', function () {
+                codigoRespuesta2.innerHTML = '<option selected>Seleccione una opción</option>';
+
+                if (this.value === 'acepta') {
+                    opcionesAcepta.forEach(opcion => {
+                        const option = document.createElement('option');
+                        option.value = opcion.toLowerCase();
+                        option.textContent = opcion;
+                        codigoRespuesta2.appendChild(option);
+                    });
+                    codigoRespuesta2.style.display = 'block';
+                    observaciones.style.display = 'none';
+                } else if (this.value === 'no_acepta') {
+                    opcionesNoAcepta.forEach(opcion => {
+                        const option = document.createElement('option');
+                        option.value = opcion.toLowerCase().replace(/ /g, '_');
+                        option.textContent = opcion;
+                        codigoRespuesta2.appendChild(option);
+                    });
+                    codigoRespuesta2.style.display = 'block';
+                    observaciones.style.display = 'block';
+
+                } else if (this.value === 'no_contacto') {
+                    opcionesNoContacto.forEach(opcion => {
+                        const option = document.createElement('option');
+                        option.value = opcion.toLowerCase().replace(/ /g, '_');
+                        option.textContent = opcion;
+                        codigoRespuesta2.appendChild(option);
+                    });
+                    codigoRespuesta2.style.display = 'block';
+                    observaciones.style.display = 'block';
+                } else {
+                    codigoRespuesta2.style.display = 'none';
+                    observaciones.style.display = 'none';
+                }
             });
-        </script>
-    </body>
-    
-    </html>
+        });
+    </script>
+</body>
+
+</html>

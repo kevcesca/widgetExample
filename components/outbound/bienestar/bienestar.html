@@ -137,7 +137,8 @@
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-success me-2" id="titularBtn">Titular/Cónyuge</button>
                             <button type="button" class="btn btn-warning me-2" id="otraPersonaBtn">Otra Persona</button>
-                            <button type="button" class="btn btn-outline-info" id="noTieneTiempoBtn">No tiene Tiempo</button>
+                            <button type="button" class="btn btn-outline-info" id="noTieneTiempoBtn">No tiene
+                                Tiempo</button>
                         </div>
                     </div>
 
@@ -191,76 +192,83 @@
 
                     <div id="dejarRecadoView" class="d-none mt-4">
                         <div class="alert alert-info" role="alert">
-                            <p>Podría informarle por favor que le llamamos de Crédito SEARS / INBURSA, si fuese tan amable de regresarnos una llamada, tenemos algo importante que comunicarle.</p>
-                            <p>Nos encontramos en el 01 800 900 21 23 LADA sin costo para el interior de la República o en el 52630306 para el D.F. y área metropolitana.</p>
+                            <p>Podría informarle por favor que le llamamos de Crédito SEARS / INBURSA, si fuese tan
+                                amable de regresarnos una llamada, tenemos algo importante que comunicarle.</p>
+                            <p>Nos encontramos en el 01 800 900 21 23 LADA sin costo para el interior de la República o
+                                en el 52630306 para el D.F. y área metropolitana.</p>
                             <p>Muchas Gracias Sr(a). Hasta pronto, que tenga una Excelente Tarde</p>
                         </div>
                         <div class="d-flex justify-content-end mt-3">
                             <button type="button" class="btn btn-primary" id="finalizarBtn">Finalizar</button>
                         </div>
                     </div>
-
-                    <div id="agendarView" class="d-none mt-4">
-                        <h4 class="mb-3">Agendación</h4>
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <label for="ciclo" class="form-label">Ciclo:</label>
-                                <input type="text" class="form-control" id="ciclo" readonly>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="cuenta" class="form-label">Cuenta:</label>
-                                <input type="text" class="form-control" id="cuenta" readonly>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="fecha" class="form-label">Fecha:</label>
-                                <input type="date" class="form-control" id="fecha">
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="sinInformacion" class="form-label">Sin Información:</label>
-                            <input type="text" class="form-control" id="sinInformacion">
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="numeroTelefonico" class="form-label">Número telefónico:</label>
-                                <input type="tel" class="form-control" id="numeroTelefonico">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Tipo teléfono:</label>
-                                <div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="tipoTelefono" id="telCasa"
-                                            value="casa">
-                                        <label class="form-check-label" for="telCasa">TelCasa</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="tipoTelefono" id="telOficina"
-                                            value="oficina">
-                                        <label class="form-check-label" for="telOficina">TelOficina</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="agendar" class="form-label">Agendar:</label>
-                            <input type="datetime-local" class="form-control" id="agendar">
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="agendarParaNajera">
-                            <label class="form-check-label" for="agendarParaNajera">¿Agendar para NAJERA?</label>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="reemplazarTelefono">
-                            <label class="form-check-label" for="reemplazarTelefono">¿Reemplazar teléfono
-                                actual?</label>
-                        </div>
-                        <div class="d-flex justify-content-end mt-3">
-                            <button type="button" class="btn btn-success me-2" id="agendarBtn">Agendar</button>
-                            <button type="button" class="btn btn-secondary" id="finalizarBtn">Finalizar</button>
-                        </div>
-                    </div>
                 </form>
             </div>
+        </div>
+    </div>
+
+    <div id="agendarView" class="container d-none my-4">
+        <h4 class="mb-3">Agendación</h4>
+        <!-- Table for Ciclo, Cuenta, Fecha -->
+        <table class="table table-bordered mb-3">
+            <thead>
+                <tr>
+                    <th>Ciclo</th>
+                    <th>Cuenta</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="infoRow">
+                    <td id="cicloValue"></td>
+                    <td id="cuentaValue"></td>
+                    <td id="fechaValue"></td>
+                </tr>
+                <tr id="noInfoRow" class="d-none">
+                    <td colspan="3" class="text-center">Sin información</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Número telefónico and Tipo teléfono -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="numeroTelefonico" class="form-label">Número telefónico:</label>
+                <input type="tel" class="form-control" id="numeroTelefonico">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Tipo teléfono:</label>
+                <div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tipoTelefono" id="telCasa" value="casa">
+                        <label class="form-check-label" for="telCasa">TelCasa</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tipoTelefono" id="telOficina"
+                            value="oficina">
+                        <label class="form-check-label" for="telOficina">TelOficina</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Agendar field -->
+        <div class="mb-3">
+            <label for="agendar" class="form-label">Agendar:</label>
+            <input type="datetime-local" class="form-control" id="agendar">
+        </div>
+        <!-- Checkboxes -->
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="agendarParaNajera">
+            <label class="form-check-label" for="agendarParaNajera">¿Agendar para NAJERA?</label>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="reemplazarTelefono">
+            <label class="form-check-label" for="reemplazarTelefono">¿Reemplazar teléfono
+                actual?</label>
+        </div>
+        <!-- Buttons -->
+        <div class="d-flex justify-content-end mt-3">
+            <button type="button" class="btn btn-success me-2" id="agendarBtn">Agendar</button>
+            <button type="button" class="btn btn-secondary" id="finalizarBtn">Finalizar</button>
         </div>
     </div>
 
@@ -301,7 +309,8 @@
                 </div>
                 <div class="d-flex justify-content-end mt-3">
                     <button type="button" class="btn btn-success me-2" id="acceptBtn">Acepta</button>
-                    <button type="button" class="btn btn-danger" id="rejectBtn">No Acepta</button>
+                    <button type="button" class="btn btn-danger me-2" id="rejectBtn">No Acepta</button>
+                    <button type="button" class="btn btn-primary" id="necesitaPensarlo">Necesita Pensarlo</button>
                 </div>
                 <div id="rejectionOptions" class="mt-4 d-none">
                     <h6>Motivo por el cual el cliente No Acepta el seguro</h6>
@@ -408,7 +417,7 @@
                             <label for="plan" class="form-label">Plan:</label>
                             <select class="form-select" id="plan">
                                 <option value="individual">INDIVIDUAL</option>
-                                <option value="conyugal">CONYUGAL</option>
+                                <option value="paquete">PAQUETE</option>
                             </select>
                         </div>
                     </div>
@@ -437,7 +446,21 @@
         </div>
     </div>
 
+
     <script>
+        function toggleInfoDisplay(hasInfo) {
+            const infoRow = document.getElementById('infoRow');
+            const noInfoRow = document.getElementById('noInfoRow');
+
+            if (hasInfo) {
+                infoRow.classList.remove('d-none');
+                noInfoRow.classList.add('d-none');
+            } else {
+                infoRow.classList.add('d-none');
+                noInfoRow.classList.remove('d-none');
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
             const mainView = document.getElementById('mainView');
             const insuranceView = document.getElementById('insuranceView');
@@ -470,18 +493,19 @@
             const noConoceBtn = document.getElementById('noConoceBtn');
             const noSeEncuentraBtn = document.getElementById('noSeEncuentraBtn');
             const noTieneTiempoBtn = document.getElementById('noTieneTiempoBtn');
+            const necesitaPensarlo = document.getElementById('necesitaPensarlo')
 
             contactBtn.addEventListener('click', function () {
                 initialButtons.classList.add('d-none');
                 contactOptions.classList.remove('d-none');
             });
 
-            noContactBtn.addEventListener('click', function() {
+            noContactBtn.addEventListener('click', function () {
                 initialButtons.classList.add('d-none');
                 noContactView.classList.remove('d-none');
             });
 
-            finalizarNoContactoBtn.addEventListener('click', function() {
+            finalizarNoContactoBtn.addEventListener('click', function () {
                 alert('No contacto registrado. Gracias por su tiempo.');
                 // Here you can add any final actions for no contact, such as resetting the form or redirecting
                 // location.reload();
@@ -497,22 +521,22 @@
                 loConoceOptions.classList.remove('d-none');
             });
 
-            noSeEncuentraBtn.addEventListener('click', function() {
+            noSeEncuentraBtn.addEventListener('click', function () {
                 otraPersonaOptions.classList.add('d-none');
                 siConoceOptions.classList.remove('d-none');
             });
 
-            siConoceBtn.addEventListener('click', function() {
+            siConoceBtn.addEventListener('click', function () {
                 loConoceOptions.classList.add('d-none');
                 siConoceOptions.classList.remove('d-none');
             });
 
-            noConoceBtn.addEventListener('click', function() {
+            noConoceBtn.addEventListener('click', function () {
                 loConoceOptions.classList.add('d-none');
                 noConoceView.classList.remove('d-none');
             });
 
-            dejarRecadoBtn.addEventListener('click', function() {
+            dejarRecadoBtn.addEventListener('click', function () {
                 siConoceOptions.classList.add('d-none');
                 dejarRecadoView.classList.remove('d-none');
             });
@@ -525,29 +549,34 @@
             noTieneTiempoBtn.addEventListener('click', function () {
                 contactOptions.classList.add('d-none');
                 agendarView.classList.remove('d-none');
-            }); 
+            });
 
-            otraPersonaBtn.addEventListener('click', function() {
+            necesitaPensarlo.addEventListener('click', function () {
+                insuranceView.classList.add('d-none');
+                agendarView.classList.remove('d-none');
+            });
+
+            otraPersonaBtn.addEventListener('click', function () {
                 contactOptions.classList.add('d-none');
                 otraPersonaOptions.classList.remove('d-none');
             });
 
-            noViveAhiBtn.addEventListener('click', function() {
+            noViveAhiBtn.addEventListener('click', function () {
                 otraPersonaOptions.classList.add('d-none');
                 loConoceOptions.classList.remove('d-none');
             });
 
-            titularBtn.addEventListener('click', function() {
+            titularBtn.addEventListener('click', function () {
                 mainView.classList.add('d-none');
                 insuranceView.classList.remove('d-none');
             });
 
-            acceptBtn.addEventListener('click', function() {
+            acceptBtn.addEventListener('click', function () {
                 insuranceView.classList.add('d-none');
                 additionalInfoView.classList.remove('d-none');
             });
 
-            rejectBtn.addEventListener('click', function() {
+            rejectBtn.addEventListener('click', function () {
                 rejectionOptions.classList.remove('d-none');
             });
 
@@ -559,11 +588,11 @@
                 confirmationView.classList.remove('d-none');
             }
 
-            finishBtn.addEventListener('click', function() {
+            finishBtn.addEventListener('click', function () {
                 alert('Proceso finalizado. Gracias por su tiempo.');
             });
 
-            finishRejectionBtn.addEventListener('click', function() {
+            finishRejectionBtn.addEventListener('click', function () {
                 alert('Rechazo registrado. Gracias por su tiempo.');
                 // Here you can add any final actions for rejection, such as resetting the form or redirecting
                 // location.reload();
